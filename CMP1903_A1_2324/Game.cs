@@ -24,8 +24,8 @@ namespace CMP1903_A1_2324
             int DieThreeValue = dieThree.DieValue; //returned integer is set as a value for this unique die object
 
             test.GameTest(DieOneValue + DieTwoValue + DieThreeValue); //Tests the sum of the three die objects
-            Console.WriteLine($"The sum of three randomly rolled dice is: {DieOneValue + DieTwoValue + DieThreeValue}"); //Shows the user the sum of three die object rolls
-            Console.WriteLine($"Individual rolls are: {DieOneValue}, {DieTwoValue}, {DieThreeValue}"); //Shows the user the die rolls for each specific die object
+            Console.WriteLine($"The sum of three randomly rolled dice is: {DieOneValue + DieTwoValue + DieThreeValue}");
+            Console.WriteLine($"Individual rolls are: {DieOneValue}, {DieTwoValue}, {DieThreeValue}");
             Console.ReadKey(); //ReadKey is used to show the user the outputs, but also to simply close the program with any key press, instead of an input with 'ReadLine'
         }
     }
