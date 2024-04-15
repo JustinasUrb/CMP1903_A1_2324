@@ -29,4 +29,24 @@ namespace CMP1903_A1_2324
             Console.ReadKey(); //ReadKey is used to show the user the outputs, but also to simply close the program with any key press, instead of an input with 'ReadLine'
         }
     }
+
+    internal class SevensOut
+    {
+        private static Testing test = new Testing();
+        public void SevensOutGame()
+        {
+            Console.WriteLine("sevens out test");
+            Console.ReadKey();
+        }
+    }
+
+    internal class ThreeOrMore
+    {
+        private static Testing test = new Testing();
+        public void ThreeOrMoreGame()
+        {
+            Console.WriteLine("three or more test");
+            Console.ReadKey();
+        }
+    }
 }
