@@ -1,6 +1,7 @@
 ﻿using CMP1903_A1_2324;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,6 +13,8 @@ namespace CMP1903_A1_2324
     internal class Game
     {
         private static Testing test = new Testing(); //A new object for Testing is created here, so that tests can be made as soon as possible
+        SevensOut sevensOut = new SevensOut();
+        ThreeOrMore threeOrMore = new ThreeOrMore();
         public void DieGame() //DieGame is the starting point of the program, as seen from Program.cs, which means that these are the first pieces of code to run
         {
             while (true)
@@ -26,12 +29,10 @@ namespace CMP1903_A1_2324
                     }
                     else if (gameChoice == 1)
                     {
-                        SevensOut sevensOut = new SevensOut();
                         sevensOut.SevensOutGame();
                     }
                     else if (gameChoice == 2)
                     {
-                        ThreeOrMore threeOrMore = new ThreeOrMore();
                         threeOrMore.ThreeOrMoreGame();
                     }
                     else if (gameChoice == 3)
@@ -59,8 +60,36 @@ namespace CMP1903_A1_2324
         private static Testing test = new Testing();
         public void SevensOutGame()
         {
-            Console.WriteLine("sevens out test");
-            Console.ReadKey();
+            int TotalValue = 0;
+            int TotalRollValue = 0;
+            while (true)
+            {
+                Die dieOne = new Die(); //creates a die object, which will be used to roll a number between 1 and 6
+                dieOne.Roll(); //uses the die object to start a unique roll method for it
+                int DieOneValue = dieOne.DieValue; //returned integer is set as a value for the die object
+
+                Die dieTwo = new Die(); //creates a new die object
+                dieTwo.Roll(); //uses the die object to start a unique roll method for it
+                int DieTwoValue = dieTwo.DieValue; //returned integer is set as a value for this unique die object
+
+                if (DieOneValue == DieTwoValue)
+                {
+                    TotalRollValue = 2 * (DieOneValue + DieTwoValue);
+                }
+                else
+                {
+                    TotalRollValue = DieOneValue + DieTwoValue;
+                }
+
+                TotalValue = TotalValue += TotalRollValue;
+                Console.WriteLine($"Die rolls are: {DieOneValue} and {DieTwoValue}\n\nTotal (current) throw value: {TotalRollValue}\nTotal: {TotalValue}");
+                Console.ReadKey();
+                if (TotalRollValue == 7)
+                {
+                    Console.WriteLine($"\n\nFinal Score: {TotalValue}\n\n");
+                    break;
+                }
+            }
         }
     }
 
