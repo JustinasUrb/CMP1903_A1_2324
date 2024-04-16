@@ -60,6 +60,7 @@ namespace CMP1903_A1_2324
         private static Testing test = new Testing();
         public void SevensOutGame()
         {
+            bool StoppingGame = false;
             int TotalValue = 0;
             int TotalRollValue = 0;
             while (true)
@@ -86,6 +87,8 @@ namespace CMP1903_A1_2324
                 Console.ReadKey();
                 if (TotalRollValue == 7)
                 {
+                    StoppingGame = true;
+                    test.SevensOutGame(TotalRollValue, StoppingGame);
                     Console.WriteLine($"\n\nFinal Score: {TotalValue}\n\n");
                     break;
                 }
