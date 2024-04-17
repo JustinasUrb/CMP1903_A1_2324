@@ -33,7 +33,7 @@ namespace CMP1903_A1_2324
                     }
                     else if (gameChoice == 2)
                     {
-                        threeOrMore.ThreeOrMoreGame();
+                        threeOrMore.ThreeOrMoreMenu();
                     }
                     else if (gameChoice == 3)
                     {
@@ -83,13 +83,13 @@ namespace CMP1903_A1_2324
                 }
 
                 TotalValue = TotalValue += TotalRollValue;
-                Console.WriteLine($"Die rolls are: {DieOneValue} and {DieTwoValue}\n\nTotal (current) throw value: {TotalRollValue}\nTotal: {TotalValue}");
+                Console.WriteLine($"\nDie rolls are: {DieOneValue} and {DieTwoValue}\nTotal (current) throw value: {TotalRollValue}\nTotal: {TotalValue}");
                 Console.ReadKey();
                 if (TotalRollValue == 7)
                 {
                     StoppingGame = true;
                     test.SevensOutGame(TotalRollValue, StoppingGame);
-                    Console.WriteLine($"\n\nFinal Score: {TotalValue}\n\n");
+                    Console.WriteLine($"\n\nA '7' was rolled!\nFinal Score: {TotalValue}\n\n");
                     break;
                 }
             }
@@ -99,10 +99,53 @@ namespace CMP1903_A1_2324
     internal class ThreeOrMore
     {
         private static Testing test = new Testing();
-        public void ThreeOrMoreGame()
+        public void ThreeOrMoreMenu()
         {
-            Console.WriteLine("three or more test");
+            int playerOneScore = 0; 
+            int playerTwoScore = 0;
+            int computerScore = 0;
+            int players = 0; 
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("\n\nPlease enter a number based on the action you want to occur: \n\n1 = Play Multiplayer\n2 = Play against a computer\n\nMake your choice below:");
+                    int playerChoice = int.Parse(Console.ReadLine());
+                    if (playerChoice < 1 || playerChoice > 2)
+                    {
+                        Console.WriteLine("Please remember to put an integer that is either a: 1 or 2");
+                    }
+                    else if (playerChoice == 1)
+                    {
+                        players = 2;
+                        ThreeOrMoreGame(players);
+                    }
+                    else if (playerChoice == 2)
+                    {
+                        players = 1;
+                        ThreeOrMoreGame(players);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"\n\nError: {e}\n\nPlease remember to put an integer that is either a: 1 or 2");
+                }
+            }
+            
+        }
+        public void ThreeOrMoreGame(int players)
+        {
+            Console.WriteLine(players);
             Console.ReadKey();
+            if (players == 1)
+            {
+                //Playing against a computer
+            }
+            else if (players == 2)
+            {
+                //Playing against another player
+            }
         }
     }
 }
