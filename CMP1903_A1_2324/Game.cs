@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -136,11 +137,76 @@ namespace CMP1903_A1_2324
         }
         public void ThreeOrMoreGame(int players)
         {
-            Console.WriteLine(players);
-            Console.ReadKey();
+            int restartChoice = 0;
             if (players == 1)
             {
-                //Playing against a computer
+                while (true)
+                {
+                    Die dieOne = new Die(); //creates a die object, which will be used to roll a number between 1 and 6
+                    dieOne.Roll(); //uses the die object to start a unique roll method for it
+                    int DieOneValue = dieOne.DieValue; //returned integer is set as a value for the die object
+
+                    Die dieTwo = new Die(); //creates a new die object
+                    dieTwo.Roll(); //uses the die object to start a unique rol`l method for it
+                    int DieTwoValue = dieTwo.DieValue; //returned integer is set as a value for this unique die object#
+                    while (true)
+                        try
+                        {
+                            if (DieOneValue == DieTwoValue)
+                            {
+                                Console.WriteLine($"Identical Rolls Detected! : {DieOneValue}, {DieTwoValue}");
+                                Console.WriteLine("\n\nPlease enter a number based on the action you want to occur: \n\n1 = Roll three remaining Die\n2 = Reroll all 5 Die\n\nMake your choice below:");
+                                restartChoice = int.Parse(Console.ReadLine());
+                                if (restartChoice < 1 || restartChoice > 2)
+                                {
+                                    Console.WriteLine("Remember to put a number that is either a: 1 or 2");
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                Die dieThree = new Die(); //creates a new die object
+                                dieThree.Roll(); //uses the die object to start a unique rol`l method for it
+                                int DieThreeValue = dieThree.DieValue; //returned integer is set as a value for this unique die object#
+
+                                Die dieFour = new Die(); //creates a new die object
+                                dieFour.Roll(); //uses the die object to start a unique rol`l method for it
+                                int DieFourValue = dieFour.DieValue; //returned integer is set as a value for this unique die object#
+
+                                Die dieFive = new Die(); //creates a new die object
+                                dieFive.Roll(); //uses the die object to start a unique rol`l method for it
+                                int DieFiveValue = dieFive.DieValue; //returned integer is set as a value for this unique die object#
+
+                                Console.WriteLine($"Rolls Are: {DieOneValue}, {DieTwoValue}, {DieThreeValue}, {DieFourValue}, {DieFiveValue}");
+                                Console.ReadKey();
+                                break;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine($"\n\nError: {e}\n\nPlease remember to put an integer that is either a: 1 or 2");
+                        }
+                    if (restartChoice == 1)
+                    {
+                        Die dieThree = new Die(); //creates a new die object
+                        dieThree.Roll(); //uses the die object to start a unique rol`l method for it
+                        int DieThreeValue = dieThree.DieValue; //returned integer is set as a value for this unique die object#
+
+                        Die dieFour = new Die(); //creates a new die object
+                        dieFour.Roll(); //uses the die object to start a unique rol`l method for it
+                        int DieFourValue = dieFour.DieValue; //returned integer is set as a value for this unique die object#
+
+                        Die dieFive = new Die(); //creates a new die object
+                        dieFive.Roll(); //uses the die object to start a unique rol`l method for it
+                        int DieFiveValue = dieFive.DieValue; //returned integer is set as a value for this unique die object#
+
+                        Console.WriteLine($"Rolls Are: {DieOneValue}, {DieTwoValue}, {DieThreeValue}, {DieFourValue}, {DieFiveValue}");
+                        Console.ReadKey();
+                    }
+                }
             }
             else if (players == 2)
             {
