@@ -16,6 +16,7 @@ namespace CMP1903_A1_2324
         private static Testing test = new Testing(); //A new object for Testing is created here, so that tests can be made as soon as possible
         SevensOut sevensOut = new SevensOut();
         ThreeOrMore threeOrMore = new ThreeOrMore();
+        Statistics statistics = new Statistics();
         public void DieGame() //DieGame is the starting point of the program, as seen from Program.cs, which means that these are the first pieces of code to run
         {
             while (true)
@@ -38,7 +39,7 @@ namespace CMP1903_A1_2324
                     }
                     else if (gameChoice == 3)
                     {
-                        Console.WriteLine("Opening Statistics...");
+                        statistics.GameStatistis();
                     }
                     else if (gameChoice == 4)
                     {
@@ -264,7 +265,41 @@ namespace CMP1903_A1_2324
                 }
             }
         }
-
-
+    }
+    internal class Statistics
+    {
+        public void GameStatistis()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Please enter a number based on the action you want to occur: \n\n1 = See 'Sevens Out' Statistics\n2 = See 'Three or More' Statistics\n3 = Exit back to Menu\n\nMake your choice below:");
+                    int statChoice = int.Parse(Console.ReadLine());
+                    if (statChoice < 1 || statChoice > 3)
+                    {
+                        Console.WriteLine("Please remember to put an integer that is either a: 1 or 2");
+                    }
+                    else if (statChoice == 1)
+                    {
+                        //See 'Sevens Out' Statistics
+                        Console.WriteLine("sevens out stats");
+                    }
+                    else if (statChoice == 2)
+                    {
+                        //See 'Three or more' Statistics
+                        Console.WriteLine("three or more stats");
+                    }
+                    else if (statChoice == 3)
+                    {
+                        break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"\n\nError: {e}\n\nPlease remember to put an integer that is either a: 1 or 2");
+                }
+            }
+        }
     }
 }
