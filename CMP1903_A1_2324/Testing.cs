@@ -22,6 +22,16 @@ namespace CMP1903_A1_2324
             Debug.Assert(state == true, "Game failed to end when the objective of the game was reached.");
         }
 
+        public void ThreeOrMore(int value)
+        {
+            Debug.Assert(value < 12, "Die adding has failed (maximum score can be +12 per turn)");
+        }
+
+        public void ThreeOrMore(int valueOne, int valueTwo)
+        {
+            Debug.Assert(valueOne >= 20 || valueTwo >= 20, "Error: Game ended before values reached +20");
+        }
+
         public void GameTest(int value)
         {
             Debug.Assert(value <= 18, "Sum above the value of 18 (Max)"); //Using Asserts, the sum is checked to make sure that it is below the logical maximum

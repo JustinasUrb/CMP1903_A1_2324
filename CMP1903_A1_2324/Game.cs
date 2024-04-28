@@ -247,6 +247,8 @@ namespace CMP1903_A1_2324
                         break;
                 }
 
+                test.ThreeOrMore(awardedScore);
+
                 if (currentPlayer == 1)
                 {
                     playerOneScore += awardedScore;
@@ -265,6 +267,7 @@ namespace CMP1903_A1_2324
                     playerOneScores.Add(playerOneScore);
                     playerTwoOrComputerScores.Add(computerOrPlayerTwoScore);
 
+                    test.ThreeOrMore(playerOneScore, computerOrPlayerTwoScore);
                     Console.WriteLine($"{(playerOneScore >= 20 ? "Player 1" : (players == 1 ? "Computer" : "Player 2"))} wins!");
                     break;
                 }
