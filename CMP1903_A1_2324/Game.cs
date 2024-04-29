@@ -23,10 +23,10 @@ namespace CMP1903_A1_2324
             {
                 try
                 {
-                    Console.WriteLine("Please enter a number based on the action you want to occur: \n\n1 = Play 'Sevens Out' Game\n2 = Play 'Three or More' Game\n3 = View Statistics Data\n4 = Quit\n\nMake your choice below:");
+                    Console.WriteLine("Please enter a number based on the action you want to occur: \n\n1 = Play 'Sevens Out' Game\n2 = Play 'Three or More' Game\n3 = View Statistics Data\n4 = Testing\n5 = Quit\n\nMake your choice below:");
                     int gameChoice = int.Parse(Console.ReadLine());
-                    if (gameChoice < 1 || gameChoice > 4){
-                        Console.WriteLine("Please remember to put an integer that is either: 1, 2, 3 or 4.");
+                    if (gameChoice < 1 || gameChoice > 5){
+                        Console.WriteLine("Please remember to put an integer that is either: 1, 2, 3 , 4 or 5.");
                         Console.ReadKey();
                     }
                     else if (gameChoice == 1)
@@ -43,13 +43,17 @@ namespace CMP1903_A1_2324
                     }
                     else if (gameChoice == 4)
                     {
+                        test.testingMethods();
+                    }
+                    else if (gameChoice == 5)
+                    {
                         Console.WriteLine("Quitting Application...");
                         break;
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"\n\nError: {e}\n\nPlease remember to put an integer that is either: 1, 2, 3 or 4.");
+                    Console.WriteLine($"\n\nError: {e}\n\nPlease remember to put an integer that is either: 1, 2, 3, 4 or 5.");
                     Console.ReadKey();
                 }
                 
