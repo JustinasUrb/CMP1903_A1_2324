@@ -14,6 +14,7 @@ namespace CMP1903_A1_2324
             {
                 try
                 {
+                    //allows the user to select the choice of viewing statistics from both games, or going back to the menu
                     Console.WriteLine("\n\nPlease enter a number based on the action you want to occur: \n\n1 = See 'Sevens Out' Statistics\n2 = See 'Three or More' Statistics\n3 = Exit back to Menu\n\nMake your choice below:");
                     int statChoice = int.Parse(Console.ReadLine());
                     if (statChoice < 1 || statChoice > 3)
@@ -22,7 +23,7 @@ namespace CMP1903_A1_2324
                     }
                     else if (statChoice == 1)
                     {
-                        // Display 'Sevens Out' scores
+                        // displays 'Sevens Out' scores from the previous games
                         if (!SevensOut.scores.Any())
                         {
                             Console.WriteLine("No 'Sevens Out' games have been played yet.");
@@ -38,7 +39,7 @@ namespace CMP1903_A1_2324
                     }
                     else if (statChoice == 2)
                     {
-                        // Display 'Three or More' scores
+                        //displays 'Three or More' scores from the previous games
                         Console.WriteLine("\n\nScores from 'Three or More' games:\n");
                         if (!ThreeOrMore.playerOneScores.Any())
                         {
@@ -68,7 +69,7 @@ namespace CMP1903_A1_2324
                     }
                     else if (statChoice == 3)
                     {
-                        break; // Exit back to Menu
+                        break; //exits back to 'game' menu
                     }
                 }
                 catch (Exception e)
