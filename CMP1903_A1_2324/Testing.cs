@@ -72,7 +72,7 @@ namespace CMP1903_A1_2324
 
         public void ThreeOrMore(int value)
         {
-            Debug.Assert(value < 12, "Die adding has failed (maximum score can be +12 per turn)");
+            Debug.Assert(value <= 12, "Die adding has failed (maximum score can be +12 per turn)");
         }
 
         public void ThreeOrMore(int valueOne, int valueTwo)
